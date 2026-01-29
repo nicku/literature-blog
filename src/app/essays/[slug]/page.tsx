@@ -24,7 +24,7 @@ export default async function EssayPage({ params }: EssayPageProps) {
         ← Back
       </Link>
 
-      <h1 className="text-4xl font-serif mb-2">{essay.title}</h1>
+      <h1 className="font-title text-4xl font-bold mb-2">{essay.title}</h1>
       <p className="text-sm text-gray-500 mb-8">
         {essay.category} • {essay.language?.toUpperCase?.() ?? ""} • {essay.date}
       </p>

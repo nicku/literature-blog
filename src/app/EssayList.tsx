@@ -22,7 +22,7 @@ export default function EssayList({ essays }: EssayListProps) {
 
   return (
     <main className="max-w-3xl mx-auto p-6">
-      <h1 className="text-4xl font-serif mb-8">Literature Blog</h1>
+      <h1 className="font-title text-4xl font-bold mb-8">Literature Blog</h1>
 
       <div className="mb-4">
         <button
@@ -42,7 +42,7 @@ export default function EssayList({ essays }: EssayListProps) {
       <div className="space-y-6">
         {filteredEssays.map((essay) => (
           <div key={essay.slug} className="border-b pb-4">
-            <h2 className="text-2xl font-serif">
+            <h2 className="font-title text-2xl font-bold">
               <Link href={`/essays/${essay.slug}`} className="hover:underline">
                 {essay.title}
               </Link>
