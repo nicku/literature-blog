@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 interface Essay {
   title: string;
@@ -42,7 +43,9 @@ export default function EssayList({ essays }: EssayListProps) {
         {filteredEssays.map((essay) => (
           <div key={essay.slug} className="border-b pb-4">
             <h2 className="text-2xl font-serif">
-              {essay.title}
+              <Link href={`/essays/${essay.slug}`} className="hover:underline">
+                {essay.title}
+              </Link>
             </h2>
             <p className="text-sm text-gray-500">
               {essay.category} • {essay.language.toUpperCase()} • {essay.date}
