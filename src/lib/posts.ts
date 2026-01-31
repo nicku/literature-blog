@@ -3,6 +3,14 @@ import path from "path"
 import matter from "gray-matter"
 
 const essaysDirectory = path.join(process.cwd(), "src/content/essays")
+const aboutPath = path.join(process.cwd(), "src/content/about.md")
+
+export function getAboutContent(): string | null {
+  if (!fs.existsSync(aboutPath)) return null
+  const fileContents = fs.readFileSync(aboutPath, "utf8")
+  const { content } = matter(fileContents)
+  return content
+}
 
 export function getAllEssays() {
   const fileNames = fs.readdirSync(essaysDirectory)

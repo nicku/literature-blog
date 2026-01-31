@@ -20,8 +20,8 @@ export default async function EssayPage({ params }: EssayPageProps) {
 
   return (
     <main className="max-w-3xl mx-auto p-6">
-      <Link href="/" className="text-blue-600 hover:underline block mb-6">
-        ← Back
+      <Link href="/essays" className="text-blue-600 hover:underline block mb-6">
+        ← Back to Essays
       </Link>
 
       <h1 className="font-title text-4xl font-bold mb-2">{essay.title}</h1>
