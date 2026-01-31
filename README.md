@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Literature Blog
+
+A bilingual (English & Hebrew) blog for literature essays, built with Next.js.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). Use the language switcher and search to browse essays.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Adding a New Essay
+
+Each essay is a **Markdown file** with YAML frontmatter. You need **one file per language** (e.g. one for English, one for Hebrew).
+
+### 1. Create the Markdown file(s)
+
+- **Location:** `src/content/essays/`
+- **Naming:** `{slug}-en.md` and/or `{slug}-he.md`  
+  Examples: `my-essay-en.md`, `my-essay-he.md`
+
+### 2. Frontmatter (required)
+
+At the top of each file, between `---` lines:
+
+```yaml
+---
+title: "Your Essay Title"
+language: "en"   # or "he" for Hebrew
+category: "Category Name"
+date: "YYYY-MM-DD"
+slug: "my-essay"   # same for both en/he versions of the same essay
+image: "/essays/my-essay-en.jpg"   # optional; see "Adding an image" below
+---
+```
+
+Then write your essay body in Markdown below the second `---`.
+
+### 3. Optional: Add an image
+
+- **Where to put the image:** `public/essays/`
+- **Suggested name:** Match the file slug and language, e.g. `my-essay-en.jpg`, `my-essay-he.jpg`
+- **What to put in frontmatter:**  
+  `image: "/essays/my-essay-en.jpg"`  
+  (path starts with `/essays/` and matches the file name in `public/essays/`)
+
+If you omit `image`, the site uses a placeholder image. Supported formats: JPG, PNG, WebP, SVG.
+
+### Summary: Files to create or edit
+
+| What you’re doing              | Files to create/edit                                      |
+|--------------------------------|-----------------------------------------------------------|
+| New English essay              | `src/content/essays/{slug}-en.md`                         |
+| New Hebrew essay               | `src/content/essays/{slug}-he.md`                         |
+| Essay image                    | Put image in `public/essays/`, set `image` in frontmatter |
+
+No code changes are needed; new files in `src/content/essays/` are picked up automatically.
+
+---
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Deploy on Vercel](https://nextjs.org/docs/app/building-your-application/deploying)

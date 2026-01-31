@@ -43,11 +43,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${titleLatin.variable} ${titleHebrew.variable} antialiased min-h-screen bg-background text-foreground`}
+        className={`${geistSans.variable} ${geistMono.variable} ${titleLatin.variable} ${titleHebrew.variable} antialiased min-h-screen text-foreground`}
       >
-        <div className="flex">
+        <div className="flex min-h-screen">
           <Sidebar />
-          <div className="flex-1 min-w-0">{children}</div>
+          <div className="flex-1 min-w-0 py-8 px-4 sm:px-8">{children}</div>
         </div>
       </body>
     </html>

@@ -2,8 +2,9 @@
 title: "Walter Benjamin and the Aura of Art"
 language: "en"
 category: "German Literature"
-date: "2026-01-30"
+date: "30/01/2026"
 slug: "benjamin-and-the-aura"
+image: "/essays/walter-en.jpg"
 ---
 
 Walter Benjamin’s concept of the “aura” describes the unique presence a work of art holds in time and space. In an age of mechanical reproduction, Benjamin argues, this presence begins to dissolve, replaced by endless copies that strip the artwork of its ritual and historical weight.

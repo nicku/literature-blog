@@ -28,6 +28,7 @@ export function getAllEssays() {
       category: data.category,
       date: data.date,
       slug,
+      image: data.image ?? null,
       content,
     }
   })
@@ -45,6 +46,7 @@ export function getEssayBySlug(slug: string) {
     category: data.category,
     date: data.date,
     slug,
+    image: data.image ?? null,
     content,
   }
 }

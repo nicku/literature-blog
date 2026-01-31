@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import { remark } from "remark"
 import html from "remark-html"
 
+import EssayImage from "@/app/components/EssayImage"
 import { getAllEssays, getEssayBySlug } from "@/lib/posts"
 
 type EssayPageProps = {
@@ -18,21 +19,55 @@ export default async function EssayPage({ params }: EssayPageProps) {
   const processedContent = await remark().use(html).process(essay.content)
   const contentHtml = processedContent.toString()
 
+  const isRtl = essay.language === "he"
+
   return (
-    <main className="max-w-3xl mx-auto p-6">
-      <Link href="/essays" className="text-blue-600 hover:underline block mb-6">
-        ← Back to Essays
-      </Link>
+    <main className="max-w-3xl mx-auto">
+      <div className="paper rounded-xl p-6 sm:p-8">
+        <Link
+          href="/essays"
+          dir="ltr"
+          className="inline-block mb-6 text-sm font-medium hover:opacity-80 transition-opacity"
+          style={{ color: "var(--accent)" }}
+        >
+          ← Back to Essays
+        </Link>
 
-      <h1 className="font-title text-4xl font-bold mb-2">{essay.title}</h1>
-      <p className="text-sm text-gray-500 mb-8">
-        {essay.category} • {essay.language?.toUpperCase?.() ?? ""} • {essay.date}
-      </p>
+        <div
+          dir={isRtl ? "rtl" : "ltr"}
+          lang={essay.language}
+          className="text-start"
+        >
+          <div
+            className="relative w-full aspect-[16/9] rounded-lg overflow-hidden mb-8"
+            style={{ background: "var(--background-accent)" }}
+          >
+            <EssayImage
+              src={essay.image}
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, 48rem"
+            />
+          </div>
 
-      <article
-        className="prose prose-neutral max-w-none"
-        dangerouslySetInnerHTML={{ __html: contentHtml }}
-      />
+          <h1 className="font-title text-4xl font-bold mb-2" style={{ color: "var(--foreground)" }}>
+            {essay.title}
+          </h1>
+          <p className="text-sm mb-8" style={{ color: "var(--foreground-muted)" }}>
+            {essay.category} • {essay.language?.toUpperCase?.() ?? ""} • {essay.date}
+          </p>
+
+          <div className="rule my-8" role="presentation" />
+
+          <article
+            className="prose prose-neutral max-w-none prose-headings:font-title prose-headings:font-bold prose-p:leading-relaxed prose-a:no-underline hover:prose-a:underline"
+            dir={isRtl ? "rtl" : "ltr"}
+            lang={essay.language}
+            dangerouslySetInnerHTML={{ __html: contentHtml }}
+          />
+        </div>
+      </div>
     </main>
   )
 }
