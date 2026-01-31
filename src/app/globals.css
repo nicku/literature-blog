@@ -1,9 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  /* Tailwind green-100 */
-  --background: #dcfce7;
-  --foreground: #171717;
+  /* Warm parchment / aged paper */
+  --background: #f4efe6;
+  --background-accent: #ebe4d9;
+  --paper: #faf8f4;
+  --paper-shadow: rgba(55, 45, 35, 0.08);
+  --foreground: #2c2825;
+  --foreground-muted: #5c554c;
+  --accent: #6b5344;
+  --border: rgba(107, 83, 68, 0.2);
+  --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
 }
 
 @theme inline {
@@ -15,19 +22,83 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Tailwind green-950 */
-    --background: #052e16;
-    --foreground: #ededed;
+    --background: #1e1b18;
+    --background-accent: #252220;
+    --paper: #2a2724;
+    --paper-shadow: rgba(0, 0, 0, 0.3);
+    --foreground: #e8e4df;
+    --foreground-muted: #a8a29e;
+    --accent: #c4b5a5;
+    --border: rgba(196, 181, 165, 0.25);
+    --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   }
 }
 
 body {
   background: var(--background);
+  background-image: var(--grain);
+  background-attachment: fixed;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
 .font-title {
   font-family: var(--font-title-latin), var(--font-title-hebrew), ui-serif,
     Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+/* Paper card for main content */
+.paper {
+  background: var(--paper);
+  box-shadow: 0 1px 3px var(--paper-shadow), 0 20px 40px -20px var(--paper-shadow);
+  border: 1px solid var(--border);
+}
+
+/* Decorative rule */
+.rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border) 15%,
+    var(--border) 85%,
+    transparent
+  );
+}
+
+/* RTL (Hebrew) prose and content */
+[dir="rtl"] .prose,
+.prose[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .prose p,
+[dir="rtl"] .prose li,
+[dir="rtl"] .prose h1,
+[dir="rtl"] .prose h2,
+[dir="rtl"] .prose h3,
+.prose[dir="rtl"] p,
+.prose[dir="rtl"] li,
+.prose[dir="rtl"] h1,
+.prose[dir="rtl"] h2,
+.prose[dir="rtl"] h3 {
+  text-align: right;
+}
+
+[dir="rtl"] .prose ul,
+[dir="rtl"] .prose ol,
+.prose[dir="rtl"] ul,
+.prose[dir="rtl"] ol {
+  padding-right: 1.625em;
+  padding-left: 0;
+}
+
+[dir="rtl"] .prose blockquote,
+.prose[dir="rtl"] blockquote {
+  border-right-width: 4px;
+  border-left-width: 0;
+  padding-right: 1em;
+  padding-left: 0;
+  margin-right: 0;
+  margin-left: 1.5em;
 }

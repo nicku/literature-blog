@@ -3,12 +3,15 @@
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
 
+import EssayImage from './components/EssayImage'
+
 interface Essay {
   title: string;
   language: string;
   category: string;
   date: string;
   slug: string;
+  image: string | null;
   content: string;
 }
 
@@ -44,62 +47,113 @@ export default function EssayList({ essays }: EssayListProps) {
   }, [essays, selectedLanguage, searchQuery])
 
   return (
-    <main className="max-w-3xl mx-auto p-6">
-      <h1 className="font-title text-4xl font-bold mb-8">Essays</h1>
+    <main className="max-w-3xl mx-auto">
+      <div className="paper rounded-xl p-6 sm:p-8">
+        <h1 className="font-title text-4xl font-bold mb-4">Essays</h1>
+        <div className="rule my-6" role="presentation" />
 
-      <div className="mb-6">
-        <label htmlFor="essay-search" className="sr-only">
-          Search essays by category or words
-        </label>
-        <input
-          id="essay-search"
-          type="search"
-          placeholder="Search by category or words in essays..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full px-4 py-2.5 rounded-lg border border-foreground/20 bg-background text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-foreground/30 focus:border-foreground/40"
-          aria-label="Search essays by category or words"
-        />
-      </div>
-
-      <div className="mb-4 flex flex-wrap items-center gap-3">
-        <span className="text-sm text-foreground/70">Language:</span>
-        <button
-          onClick={() => setSelectedLanguage('en')}
-          className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${selectedLanguage === 'en' ? 'bg-blue-500 text-white' : 'bg-foreground/10 text-foreground hover:bg-foreground/15'}`}
-        >
-          English
-        </button>
-        <button
-          onClick={() => setSelectedLanguage('he')}
-          className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${selectedLanguage === 'he' ? 'bg-blue-500 text-white' : 'bg-foreground/10 text-foreground hover:bg-foreground/15'}`}
-        >
-          עברית
-        </button>
-      </div>
-
-      {filteredEssays.length === 0 ? (
-        <p className="text-foreground/70 py-4">
-          {searchQuery.trim()
-            ? 'No essays match your search. Try different words or categories.'
-            : 'No essays in this language yet.'}
-        </p>
-      ) : (
-        <div className="space-y-6">
-          {filteredEssays.map((essay) => (
-            <div key={essay.slug} className="border-b border-foreground/10 pb-4">
-              <h2 className="font-title text-2xl font-bold">
-                <Link href={`/essays/${essay.slug}`} className="hover:underline">
-                  {essay.title}
-                </Link>
-              </h2>
-              <p className="text-sm text-foreground/60">
-                {essay.category} • {essay.language.toUpperCase()} • {essay.date}
-              </p>
-            </div>
-          ))}
+        <div className="mb-6">
+          <label htmlFor="essay-search" className="sr-only">
+            Search essays by category or words
+          </label>
+          <input
+            id="essay-search"
+            type="search"
+            placeholder="Search by category or words in essays..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full px-4 py-2.5 rounded-lg border text-foreground placeholder-[var(--foreground-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30"
+            style={{ borderColor: "var(--border)", background: "var(--background)" }}
+            aria-label="Search essays by category or words"
+          />
         </div>
-      )}
+
+        <div className="mb-6 flex flex-wrap items-center gap-3">
+          <span className="text-sm" style={{ color: "var(--foreground-muted)" }}>
+            Language:
+          </span>
+          <button
+            onClick={() => setSelectedLanguage('en')}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              selectedLanguage === 'en'
+                ? "text-white"
+                : "hover:opacity-90"
+            }`}
+            style={
+              selectedLanguage === 'en'
+                ? { background: "var(--accent)" }
+                : { background: "var(--background-accent)", color: "var(--foreground)" }
+            }
+          >
+            English
+          </button>
+          <button
+            onClick={() => setSelectedLanguage('he')}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              selectedLanguage === 'he'
+                ? "text-white"
+                : "hover:opacity-90"
+            }`}
+            style={
+              selectedLanguage === 'he'
+                ? { background: "var(--accent)" }
+                : { background: "var(--background-accent)", color: "var(--foreground)" }
+            }
+          >
+            עברית
+          </button>
+        </div>
+
+        {filteredEssays.length === 0 ? (
+          <p className="py-6" style={{ color: "var(--foreground-muted)" }}>
+            {searchQuery.trim()
+              ? 'No essays match your search. Try different words or categories.'
+              : 'No essays in this language yet.'}
+          </p>
+        ) : (
+          <div className="space-y-6">
+            {filteredEssays.map((essay) => {
+              const isRtl = essay.language === "he"
+              return (
+                <article
+                  key={essay.slug}
+                  dir={isRtl ? "rtl" : "ltr"}
+                  lang={essay.language}
+                  className="flex flex-col sm:flex-row gap-4 py-6 pl-4 sm:pl-5 rounded-r-lg border-l-2 -ml-px rtl:pl-0 rtl:pr-4 sm:rtl:pr-5 rtl:border-l-0 rtl:border-r-2 rtl:rounded-l-lg rtl:rounded-r-none rtl:-mr-px rtl:ml-0"
+                  style={{ borderColor: "var(--accent)", background: "var(--background)" }}
+                >
+                  <Link
+                    href={`/essays/${essay.slug}`}
+                    className="shrink-0 w-full sm:w-40 h-32 sm:h-28 relative rounded-lg overflow-hidden order-first sm:order-none"
+                    style={{ background: "var(--background-accent)" }}
+                  >
+                    <EssayImage
+                      src={essay.image}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 10rem"
+                    />
+                  </Link>
+                  <div className="min-w-0 text-start">
+                    <h2 className="font-title text-2xl font-bold">
+                      <Link
+                        href={`/essays/${essay.slug}`}
+                        className="hover:opacity-80 transition-opacity"
+                        style={{ color: "var(--foreground)" }}
+                      >
+                        {essay.title}
+                      </Link>
+                    </h2>
+                    <p className="text-sm mt-1" style={{ color: "var(--foreground-muted)" }}>
+                      {essay.category} • {essay.language.toUpperCase()} • {essay.date}
+                    </p>
+                  </div>
+                </article>
+              )
+            })}
+          </div>
+        )}
+      </div>
     </main>
   )
 }
