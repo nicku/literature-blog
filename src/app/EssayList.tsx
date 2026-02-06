@@ -8,7 +8,7 @@ import EssayImage from './components/EssayImage'
 interface Essay {
   title: string;
   language: string;
-  category: string;
+  categories: string[];
   date: string;
   slug: string;
   image: string | null;
@@ -28,7 +28,7 @@ function matchesSearch(essay: Essay, query: string): boolean {
     .filter(Boolean)
   const searchable = [
     essay.title,
-    essay.category,
+    ...essay.categories,
     essay.content,
   ]
     .join(' ')
@@ -145,7 +145,7 @@ export default function EssayList({ essays }: EssayListProps) {
                       </Link>
                     </h2>
                     <p className="text-sm mt-1" style={{ color: "var(--foreground-muted)" }}>
-                      {essay.category} • {essay.language.toUpperCase()} • {essay.date}
+                      {essay.categories.join(' • ')} • {essay.language.toUpperCase()} • {essay.date}
                     </p>
                   </div>
                 </article>

@@ -22,10 +22,17 @@ export function getAllEssays() {
     const { data, content } = matter(fileContents)
     const slug = fileName.replace(/\.md$/, "")
 
+    // Support both string and array for categories
+    const categories = Array.isArray(data.category)
+      ? data.category
+      : data.category
+        ? [data.category]
+        : []
+
     return {
       title: data.title,
       language: data.language,
-      category: data.category,
+      categories,
       date: data.date,
       slug,
       image: data.image ?? null,
@@ -40,10 +47,17 @@ export function getEssayBySlug(slug: string) {
 
   const { data, content } = matter(fileContents)
 
+  // Support both string and array for categories
+  const categories = Array.isArray(data.category)
+    ? data.category
+    : data.category
+      ? [data.category]
+      : []
+
   return {
     title: data.title,
     language: data.language,
-    category: data.category,
+    categories,
     date: data.date,
     slug,
     image: data.image ?? null,
