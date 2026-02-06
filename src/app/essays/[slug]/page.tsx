@@ -55,7 +55,7 @@ export default async function EssayPage({ params }: EssayPageProps) {
             {essay.title}
           </h1>
           <p className="text-sm mb-8" style={{ color: "var(--foreground-muted)" }}>
-            {essay.category} • {essay.language?.toUpperCase?.() ?? ""} • {essay.date}
+            {essay.categories.join(' • ')} • {essay.language?.toUpperCase?.() ?? ""} • {essay.date}
           </p>
 
           <div className="rule my-8" role="presentation" />

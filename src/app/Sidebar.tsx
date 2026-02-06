@@ -7,6 +7,8 @@ const navItems = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About myself' },
   { href: '/essays', label: 'Essays' },
+  { href: '/books', label: 'Published Books' },
+  { href: '/contact', label: 'Contact' },
 ]
 
 export default function Sidebar() {
