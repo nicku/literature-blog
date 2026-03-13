@@ -1,14 +1,43 @@
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
+import type { Lang } from "./i18n"
 
-const essaysDirectory = path.join(process.cwd(), "src/content/essays")
-const aboutPath = path.join(process.cwd(), "src/content/about.md")
+const contentDir = path.join(process.cwd(), "src/content")
+const essaysDirectory = path.join(contentDir, "essays")
 
-export function getAboutContent(): string | null {
-  if (!fs.existsSync(aboutPath)) return null
-  const fileContents = fs.readFileSync(aboutPath, "utf8")
-  const { content } = matter(fileContents)
+function getContentPath(base: string, lang: Lang): string {
+  const langPath = path.join(contentDir, `${base}-${lang}.md`)
+  const fallbackPath = path.join(contentDir, `${base}.md`)
+  if (fs.existsSync(langPath)) return langPath
+  return fallbackPath
+}
+
+export function getBooksContent(lang: Lang) {
+  const filePath = getContentPath("books", lang)
+  if (!fs.existsSync(filePath)) return null
+  const { data, content } = matter(fs.readFileSync(filePath, "utf8"))
+  return {
+    title: data.title ?? "Published Books",
+    content,
+  }
+}
+
+export function getContactContent(lang: Lang) {
+  const filePath = getContentPath("contact", lang)
+  if (!fs.existsSync(filePath)) return null
+  const { data, content } = matter(fs.readFileSync(filePath, "utf8"))
+  return {
+    title: data.title ?? "Contact",
+    email: data.email ?? null,
+    content,
+  }
+}
+
+export function getAboutContent(lang: Lang): string | null {
+  const filePath = getContentPath("about", lang)
+  if (!fs.existsSync(filePath)) return null
+  const { content } = matter(fs.readFileSync(filePath, "utf8"))
   return content
 }
 

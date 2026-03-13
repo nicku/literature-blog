@@ -5,7 +5,6 @@ import {
   Geist,
   Geist_Mono,
 } from "next/font/google";
-import Sidebar from "./Sidebar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -41,14 +40,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${titleLatin.variable} ${titleHebrew.variable} antialiased min-h-screen text-foreground`}
       >
-        <div className="flex min-h-screen">
-          <Sidebar />
-          <div className="flex-1 min-w-0 py-8 px-4 sm:px-8">{children}</div>
-        </div>
+        {children}
       </body>
     </html>
   );

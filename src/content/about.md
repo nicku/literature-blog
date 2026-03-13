@@ -7,9 +7,11 @@ slug: "about-me"
 image: "/images/nick-profile.jpg" # כאן תוכל לשים את הנתיב לתמונה שלך
 ---
 
-Hi!  
-My name is Nick, and I’m a graduate of the Arzim Program with a Master’s degree in Mathematics. I really enjoy reading and analyzing books, and I started this blog to share summaries and insights that emerged during my reading.  
+Hi!
 
-Over the past five years, I have written the final presentation for the *Gachliliot* project, which supports young people facing challenges in Holon.  
+My name is Nick Kushnir, a 23-year-old mathematician based in Israel. I hold a Master’s degree in Mathematics from Tel Aviv University and currently work in the high-tech sector, focusing on security. Alongside my professional work, I maintain a deep engagement with literature, where reading and writing serve as parallel forms of inquiry into the world.
 
-My stories and poems have appeared on various platforms, including the *“Fathers”* exhibition at the Beit HaOmanut Museum in Bat Yam, the *“Men’s Day”* exhibition organized by the Municipality of Petah Tikva, and in the magazine *“BeEinayha”* (edited by Dr. Zamira Poran-Zion).  
+I also have a strong passion for languages. I speak Russian and am currently immersing myself in German, enjoying the way each language opens a different window into culture and thought.
+
+Over the past five years, I have also written plays for social welfare projects in Israel, combining storytelling with community work. In addition, I have published an e-book of short stories in Hebrew, a link to which can be found on this website.
+

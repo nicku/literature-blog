@@ -1,6 +1,5 @@
 ---
-title: Published Books
-language: "he"
+title: ספרים שיצאו לאור
 ---
 
 ## מיועד להריסה
@@ -16,8 +15,3 @@ language: "he"
 מיועד להריסה הוא אוסף סיפורים על חקירה עצמית ועל בנייה עצמית שסופה התפרקות עצמית ובנייה מחדש.
 
 [לחצו לרכישה באתר](https://www.e-vrit.co.il/Product/37177/%D7%9E%D7%99%D7%95%D7%A2%D7%93_%D7%9C%D7%94%D7%A8%D7%99%D7%A1%D7%94)
-
-
----
-<!-- 
-Edit this file at `src/content/books.md` to update your published books. Use markdown links for purchase URLs. -->

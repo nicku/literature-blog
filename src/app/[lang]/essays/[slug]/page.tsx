@@ -5,32 +5,35 @@ import html from "remark-html"
 
 import EssayImage from "@/app/components/EssayImage"
 import { getAllEssays, getEssayBySlug } from "@/lib/posts"
+import { t, type Lang } from "@/lib/i18n"
 
-type EssayPageProps = {
-  params: Promise<{ slug: string }>
+type Props = {
+  params: Promise<{ lang: string; slug: string }>
 }
 
-export default async function EssayPage({ params }: EssayPageProps) {
-  const { slug } = await params
+export default async function EssayPage({ params }: Props) {
+  const { lang, slug } = await params
   if (!slug) notFound()
 
   const essay = getEssayBySlug(slug)
+  if (!essay || essay.language !== lang) notFound()
 
   const processedContent = await remark().use(html).process(essay.content)
   const contentHtml = processedContent.toString()
 
   const isRtl = essay.language === "he"
+  const labels = t(lang as Lang)
 
   return (
     <main className="max-w-3xl mx-auto">
       <div className="paper rounded-xl p-6 sm:p-8">
         <Link
-          href="/essays"
+          href={`/${lang}/essays`}
           dir="ltr"
           className="inline-block mb-6 text-sm font-medium hover:opacity-80 transition-opacity"
           style={{ color: "var(--accent)" }}
         >
-          ← Back to Essays
+          {labels.backToEssays}
         </Link>
 
         <div
@@ -75,7 +78,7 @@ export default async function EssayPage({ params }: EssayPageProps) {
 export async function generateStaticParams() {
   const essays = getAllEssays()
   return essays.map((essay) => ({
+    lang: essay.language,
     slug: essay.slug,
   }))
 }
-
