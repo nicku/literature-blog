@@ -2,6 +2,12 @@ import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 import { defaultLang, isValidLang } from "@/lib/i18n"
 
+export const config = {
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.html$).*)",
+  ],
+}
+
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 

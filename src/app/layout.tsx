@@ -32,6 +32,9 @@ const titleHebrew = Frank_Ruhl_Libre({
 export const metadata: Metadata = {
   title: "Literature Blog",
   description: "A blog about literature",
+  verification: {
+    google: "3d0b7fd5393ed38b",
+  },
 };
 
 export default function RootLayout({
