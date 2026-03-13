@@ -9,7 +9,14 @@ const staticPaths = ["", "/about", "/books", "/contact", "/essays"] as const
 export default function sitemap(): MetadataRoute.Sitemap {
   const essays = getAllEssays()
 
-  const entries: MetadataRoute.Sitemap = []
+  const entries: MetadataRoute.Sitemap = [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+  ]
 
   for (const lang of languages) {
     for (const path of staticPaths) {
