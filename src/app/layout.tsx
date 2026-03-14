@@ -30,8 +30,8 @@ const titleHebrew = Frank_Ruhl_Libre({
 });
 
 export const metadata: Metadata = {
-  title: "Literature Blog",
-  description: "A blog about literature",
+  title: "Nick Kushnir | Literature Blog",
+  description: "A blog about literature by Nick Kushnir",
   verification: {
     google: "3d0b7fd5393ed38b",
   },
