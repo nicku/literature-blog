@@ -12,6 +12,32 @@ function getHref(lang: Lang, key: string): string {
   return `${base}/${key}`
 }
 
+/** Get the counterpart essay slug when switching language (e.g. Coelho-he <-> Coelho-en) */
+function getCounterpartEssaySlug(slug: string, targetLang: Lang): string {
+  if (slug.endsWith('-he')) {
+    return targetLang === 'en' ? slug.replace(/-he$/, '-en') : slug
+  }
+  if (slug.endsWith('-en')) {
+    return targetLang === 'he' ? slug.replace(/-en$/, '-he') : slug
+  }
+  return slug
+}
+
+function getLangSwitchHref(pathname: string, currentLang: Lang): string {
+  const targetLang: Lang = currentLang === 'he' ? 'en' : 'he'
+  const base = `/${targetLang}`
+
+  // Essay page: /he/essays/Coelho-he or /en/essays/Coelho-en
+  const essayMatch = pathname.match(/^\/(he|en)\/essays\/(.+)$/)
+  if (essayMatch) {
+    const slug = essayMatch[2]
+    const counterpartSlug = getCounterpartEssaySlug(slug, targetLang)
+    return `${base}/essays/${counterpartSlug}`
+  }
+
+  return pathname.replace(/^\/(he|en)/, base)
+}
+
 interface SidebarProps {
   lang: Lang
   onNavigate?: () => void
@@ -60,7 +86,7 @@ export default function Sidebar({ lang, onNavigate }: SidebarProps) {
         }}
       >
         <Link
-          href={pathname.replace(/^\/(he|en)/, lang === 'he' ? '/en' : '/he')}
+          href={getLangSwitchHref(pathname, lang)}
           onClick={onNavigate}
           className="inline-flex rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-200 hover:bg-[var(--background-accent)]"
           style={{ color: 'var(--foreground-muted)' }}
