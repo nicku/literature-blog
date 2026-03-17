@@ -46,10 +46,15 @@ interface SidebarProps {
 export default function Sidebar({ lang, onNavigate }: SidebarProps) {
   const pathname = usePathname()
   const labels = t(lang).nav
+  const isRtl = lang === 'he'
 
   return (
     <div className="flex flex-col">
-      <nav className="flex flex-col gap-0.5">
+      <nav
+        dir={isRtl ? 'rtl' : 'ltr'}
+        lang={lang}
+        className="flex flex-col gap-0.5"
+      >
         {navKeys.map((key) => {
           const href = getHref(lang, key)
           const isActive = key === 'home'
@@ -60,7 +65,7 @@ export default function Sidebar({ lang, onNavigate }: SidebarProps) {
               key={key}
               href={href}
               onClick={onNavigate}
-              className={`rounded-xl px-4 py-3 text-[0.9375rem] font-medium transition-all duration-200 ${
+              className={`rounded-xl px-4 py-3 text-[0.9375rem] font-medium transition-all duration-200 text-start ${
                 isActive
                   ? "text-[var(--accent)]"
                   : "text-[var(--foreground-muted)] hover:bg-[var(--background-accent)]/60 hover:text-[var(--foreground)]"
@@ -88,6 +93,7 @@ export default function Sidebar({ lang, onNavigate }: SidebarProps) {
         <Link
           href={getLangSwitchHref(pathname, lang)}
           onClick={onNavigate}
+          dir="ltr"
           className="inline-flex rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-200 hover:bg-[var(--background-accent)]"
           style={{ color: 'var(--foreground-muted)' }}
         >

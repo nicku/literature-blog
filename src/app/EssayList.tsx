@@ -48,11 +48,12 @@ export default function EssayList({ essays, lang }: EssayListProps) {
   }, [essays, lang, searchQuery])
 
   const labels = t(lang).essays
+  const isRtl = lang === "he"
 
   return (
     <main className="max-w-3xl mx-auto">
-      <div className="paper rounded-xl p-6 sm:p-8">
-        <h1 className="font-title text-4xl font-bold mb-4">{labels.title}</h1>
+      <div className="paper rounded-xl p-6 sm:p-8" dir={isRtl ? "rtl" : "ltr"} lang={lang}>
+        <h1 className="font-title text-4xl font-bold mb-4 text-start">{labels.title}</h1>
         <div className="rule my-6" role="presentation" />
 
         <div className="mb-6">

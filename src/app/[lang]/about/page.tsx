@@ -9,6 +9,7 @@ type Props = {
 
 export default async function AboutPage({ params }: Props) {
   const { lang } = await params
+  const isRtl = lang === "he"
   const rawContent = getAboutContent(lang as Lang)
 
   const content = rawContent
@@ -17,14 +18,16 @@ export default async function AboutPage({ params }: Props) {
 
   return (
     <main className="max-w-2xl mx-auto">
-      <div className="paper rounded-xl p-6 sm:p-8">
-        <h1 className="font-title text-4xl font-bold mb-4">
+      <div
+        className="paper rounded-xl p-6 sm:p-8"
+        dir={isRtl ? "rtl" : "ltr"}
+        lang={lang}
+      >
+        <h1 className="font-title text-4xl font-bold mb-4 text-start">
           {t(lang as Lang).nav.about}
         </h1>
         <div className="rule my-6" role="presentation" />
         <article
-          dir={lang === "he" ? "rtl" : "ltr"}
-          lang={lang}
           className="prose prose-neutral max-w-none prose-headings:font-title prose-headings:font-bold"
           dangerouslySetInnerHTML={{ __html: content }}
         />
