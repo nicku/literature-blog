@@ -18,7 +18,7 @@ export default function SidebarLayout({ lang, children }: SidebarLayoutProps) {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="fixed top-5 left-5 z-40 flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-200 hover:scale-105 active:scale-95"
+        className="fixed top-5 right-5 z-40 flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-200 hover:scale-105 active:scale-95"
         style={{
           background: 'var(--paper)',
           boxShadow: '0 1px 3px var(--paper-shadow), 0 4px 12px -4px var(--paper-shadow)',
@@ -56,13 +56,13 @@ export default function SidebarLayout({ lang, children }: SidebarLayoutProps) {
 
       {/* Sidebar panel */}
       <aside
-        className={`fixed top-0 left-0 z-50 h-full w-64 shrink-0 rounded-r-2xl transition-all duration-300 ease-out ${
-          isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+        className={`fixed top-0 right-0 z-50 h-full w-64 shrink-0 rounded-l-2xl transition-all duration-300 ease-out ${
+          isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
         }`}
         style={{
-          borderRight: '1px solid var(--border)',
+          borderLeft: '1px solid var(--border)',
           background: 'var(--paper)',
-          boxShadow: '4px 0 24px -4px var(--paper-shadow), 8px 0 48px -12px var(--paper-shadow)',
+          boxShadow: '-4px 0 24px -4px var(--paper-shadow), -8px 0 48px -12px var(--paper-shadow)',
         }}
       >
         <div className="flex h-16 shrink-0 items-center justify-end px-5 pt-5">
@@ -99,7 +99,7 @@ export default function SidebarLayout({ lang, children }: SidebarLayoutProps) {
       </aside>
 
       {/* Main content */}
-      <div className="flex-1 min-w-0 py-8 pl-[4.5rem] pr-4 sm:pl-20 sm:px-8">
+      <div className="flex-1 min-w-0 py-8 pr-[4.5rem] pl-4 sm:pr-20 sm:px-8">
         {children}
       </div>
     </div>
