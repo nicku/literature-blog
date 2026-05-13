@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { t, type Lang } from '@/lib/i18n'
 
-const navKeys = ['home', 'about', 'essays', 'books', 'contact'] as const
+const navKeys = ['home', 'about', 'essays', 'books', 'articles', 'contact'] as const
 
 function getHref(lang: Lang, key: string): string {
   const base = lang === 'he' ? '/he' : '/en'

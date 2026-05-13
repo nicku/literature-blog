@@ -141,6 +141,36 @@ You can add multiple books separated by `---` (horizontal rule). The page will a
 
 ---
 
+## Adding Published Articles
+
+The Published Articles page displays articles you've written that were published elsewhere, each with a title, description, publication name, link, and optional date.
+
+### Files to edit:
+- **`src/content/articles-en.md`** (English)
+- **`src/content/articles-he.md`** (Hebrew)
+
+Each file uses **YAML frontmatter only** (no markdown body). Add entries to the `articles` list:
+
+```yaml
+---
+title: Published Articles
+articles:
+  - title: "Article Title"
+    description: "A short description of what the article is about."
+    publication: "Publication Name"
+    url: "https://example.com/your-article"
+    date: "2024-03"   # optional
+  - title: "Another Article"
+    description: "Description of the second article."
+    publication: "Another Publication"
+    url: "https://example.com/another-article"
+---
+```
+
+The page will automatically update when you save the file. No code changes are needed.
+
+---
+
 ## Editing About Page
 
 The About page displays information about yourself.
@@ -164,6 +194,8 @@ Edit these Markdown files to add your bio, background, or any information about 
 | Contact (Hebrew)                 | `src/content/contact-he.md`                       |
 | Published books (English)        | `src/content/books-en.md`                         |
 | Published books (Hebrew)         | `src/content/books-he.md`                         |
+| Published articles (English)     | `src/content/articles-en.md`                      |
+| Published articles (Hebrew)      | `src/content/articles-he.md`                      |
 | About (English)                  | `src/content/about-en.md`                         |
 | About (Hebrew)                   | `src/content/about-he.md`                         |
 

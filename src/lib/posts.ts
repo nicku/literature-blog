@@ -41,6 +41,24 @@ export function getAboutContent(lang: Lang): string | null {
   return content
 }
 
+export interface ArticleEntry {
+  title: string
+  description: string
+  publication: string
+  url: string
+  date?: string
+}
+
+export function getArticlesContent(lang: Lang): { title: string; articles: ArticleEntry[] } | null {
+  const filePath = getContentPath("articles", lang)
+  if (!fs.existsSync(filePath)) return null
+  const { data } = matter(fs.readFileSync(filePath, "utf8"))
+  return {
+    title: data.title ?? "Published Articles",
+    articles: Array.isArray(data.articles) ? data.articles : [],
+  }
+}
+
 export function getAllEssays() {
   const fileNames = fs.readdirSync(essaysDirectory)
 

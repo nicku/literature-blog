@@ -14,6 +14,7 @@ export const translations = {
       about: "אודות",
       essays: "מאמרים",
       books: "ספרים שיצאו לאור",
+      articles: "כתבות שפורסמו",
       contact: "צור קשר",
     },
     home: {
@@ -28,6 +29,11 @@ export const translations = {
       noResults: "אין מאמרים התואמים את החיפוש. נסו מילים או קטגוריות אחרות.",
       noEssays: "עדיין אין מאמרים בשפה זו.",
     },
+    articles: {
+      title: "כתבות שפורסמו",
+      noArticles: "עדיין אין כתבות.",
+      readArticle: "קרא את הכתבה",
+    },
     backToEssays: "← חזרה למאמרים",
   },
   en: {
@@ -36,6 +42,7 @@ export const translations = {
       about: "About myself",
       essays: "Essays",
       books: "Published Books",
+      articles: "Published Articles",
       contact: "Contact",
     },
     home: {
@@ -49,6 +56,11 @@ export const translations = {
       searchPlaceholder: "Search by category or words in essays...",
       noResults: "No essays match your search. Try different words or categories.",
       noEssays: "No essays in this language yet.",
+    },
+    articles: {
+      title: "Published Articles",
+      noArticles: "No articles yet.",
+      readArticle: "Read article",
     },
     backToEssays: "← Back to Essays",
   },
