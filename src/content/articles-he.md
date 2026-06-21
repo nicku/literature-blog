@@ -11,4 +11,9 @@ articles:
     publication: "עיתון 77"
     url: "https://iton77.com/%d7%92%d7%9c%d7%99%d7%95%d7%9f-447/"
     date: "2026-05"
+
+  - title: "דיאלוג עם גדר - בעקבות 'הסימפוניה הפסטורלית' מאת אנדרה ז'יד"
+    publication: "עיתון 77"
+    url: "https://iton77.com/%d7%92%d7%99%d7%9c%d7%99%d7%95%d7%9f-448/"
+    date: "2026-06"  
 ---
