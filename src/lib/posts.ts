@@ -59,6 +59,15 @@ export function getArticlesContent(lang: Lang): { title: string; articles: Artic
   }
 }
 
+function parseEssayDate(dateStr: string): number {
+  // Supports "DD/MM/YYYY" and "D/M/YYYY"
+  const parts = dateStr.split("/")
+  if (parts.length === 3) {
+    return new Date(+parts[2], +parts[1] - 1, +parts[0]).getTime()
+  }
+  return 0
+}
+
 export function getAllEssays() {
   const fileNames = fs.readdirSync(essaysDirectory)
 
@@ -85,7 +94,7 @@ export function getAllEssays() {
       image: data.image ?? null,
       content,
     }
-  })
+  }).sort((a, b) => parseEssayDate(b.date) - parseEssayDate(a.date))
 }
 
 export function getEssayBySlug(slug: string) {
