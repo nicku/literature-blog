@@ -181,6 +181,10 @@ The About page displays information about yourself.
 
 Edit these Markdown files to add your bio, background, or any information about yourself. You can use **markdown** for formatting.
 
+### Profile photo
+
+Place a portrait JPG at **`public/images/about.jpg`**. It appears beside your bio on both language versions of the About page (photo on the left in English, on the right in Hebrew).
+
 ---
 
 ## Summary: All Content Files
@@ -198,6 +202,7 @@ Edit these Markdown files to add your bio, background, or any information about 
 | Published articles (Hebrew)      | `src/content/articles-he.md`                      |
 | About (English)                  | `src/content/about-en.md`                         |
 | About (Hebrew)                   | `src/content/about-he.md`                         |
+| About profile photo              | `public/images/about.jpg`                         |
 
 All content files use **Markdown** format. No code changes are needed; edits are picked up automatically.
 

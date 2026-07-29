@@ -35,6 +35,9 @@ export const translations = {
       readArticle: "קרא את הכתבה",
     },
     backToEssays: "← חזרה למאמרים",
+    about: {
+      photoAlt: "ניק קושניר",
+    },
   },
   en: {
     nav: {
@@ -63,6 +66,9 @@ export const translations = {
       readArticle: "Read article",
     },
     backToEssays: "← Back to Essays",
+    about: {
+      photoAlt: "Nick Kushnir",
+    },
   },
 } as const satisfies Record<Lang, Record<string, unknown>>
 
