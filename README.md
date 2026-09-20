@@ -8,7 +8,7 @@ A bilingual (English & Hebrew) blog for literature essays, built with Next.js. *
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). You'll be redirected to `/he` (Hebrew). Use the language switcher in the sidebar to switch to English (`/en`). All pages—Home, About, Essays, Books, Contact—are available in both languages.
+Open [http://localhost:3000](http://localhost:3000). You'll be redirected to `/he` (Hebrew). Use the language switcher in the sidebar to switch to English (`/en`). All pages—Home, About, Essays, Books, Articles, Publications & Appearances, Contact—are available in both languages.
 
 ---
 
@@ -171,6 +171,43 @@ The page will automatically update when you save the file. No code changes are n
 
 ---
 
+## Adding Publications & Appearances
+
+The Publications & Appearances page lists press, talks, and other public mentions. Each item can include an **explanation** plus a **photo**, a **link**, a **PDF to download**, or any combination of those.
+
+### Files to edit:
+- **`src/content/publications-en.md`** (English)
+- **`src/content/publications-he.md`** (Hebrew)
+
+Each file uses **YAML frontmatter only** (no markdown body). Add entries to the `items` list:
+
+```yaml
+---
+title: Publications & Appearances
+items:
+  - title: "Festival talk"   # optional
+    description: "A short explanation of this appearance or publication."
+    url: "https://example.com/appearance"   # optional
+    image: "/images/publications/example.jpg"   # optional; see below
+    pdf: "/publications/catalog.pdf"   # optional; see below
+    date: "2024-03"   # optional
+---
+```
+
+### Optional: Add a photo
+
+- **Where to put the image:** `public/images/publications/`
+- **What to put in frontmatter:** `image: "/images/publications/your-file.jpg"`
+
+### Optional: Add a PDF to download
+
+- **Where to put the PDF:** `public/publications/`
+- **What to put in frontmatter:** `pdf: "/publications/your-file.pdf"`
+
+The page will automatically update when you save the file. No code changes are needed.
+
+---
+
 ## Editing About Page
 
 The About page displays information about yourself.
@@ -200,6 +237,10 @@ Place a portrait JPG at **`public/images/about.jpg`**. It appears beside your bi
 | Published books (Hebrew)         | `src/content/books-he.md`                         |
 | Published articles (English)     | `src/content/articles-en.md`                      |
 | Published articles (Hebrew)      | `src/content/articles-he.md`                      |
+| Publications (English)           | `src/content/publications-en.md`                  |
+| Publications (Hebrew)            | `src/content/publications-he.md`                  |
+| Publication photo                | Put image in `public/images/publications/`, set `image` in frontmatter |
+| Publication PDF                  | Put PDF in `public/publications/`, set `pdf` in frontmatter |
 | About (English)                  | `src/content/about-en.md`                         |
 | About (Hebrew)                   | `src/content/about-he.md`                         |
 | About profile photo              | `public/images/about.jpg`                         |

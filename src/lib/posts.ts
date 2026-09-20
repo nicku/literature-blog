@@ -59,6 +59,28 @@ export function getArticlesContent(lang: Lang): { title: string; articles: Artic
   }
 }
 
+export interface PublicationEntry {
+  title?: string
+  description: string
+  url?: string
+  image?: string
+  pdf?: string
+  date?: string
+}
+
+export function getPublicationsContent(lang: Lang): {
+  title: string
+  items: PublicationEntry[]
+} | null {
+  const filePath = getContentPath("publications", lang)
+  if (!fs.existsSync(filePath)) return null
+  const { data } = matter(fs.readFileSync(filePath, "utf8"))
+  return {
+    title: data.title ?? "Publications & Appearances",
+    items: Array.isArray(data.items) ? data.items : [],
+  }
+}
+
 function parseEssayDate(dateStr: string): number {
   // Supports "DD/MM/YYYY" and "D/M/YYYY"
   const parts = dateStr.split("/")

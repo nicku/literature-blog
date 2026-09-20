@@ -4,7 +4,7 @@ import { languages } from "@/lib/i18n"
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://literatureblognick.com"
 
-const staticPaths = ["", "/about", "/books", "/contact", "/essays"] as const
+const staticPaths = ["", "/about", "/books", "/articles", "/publications", "/contact", "/essays"] as const
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const essays = getAllEssays()

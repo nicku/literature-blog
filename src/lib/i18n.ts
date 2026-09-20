@@ -15,6 +15,7 @@ export const translations = {
       essays: "מאמרים",
       books: "ספרים שיצאו לאור",
       articles: "כתבות שפורסמו",
+      publications: "פרסומים והופעות",
       contact: "צור קשר",
     },
     home: {
@@ -34,6 +35,12 @@ export const translations = {
       noArticles: "עדיין אין כתבות.",
       readArticle: "קרא את הכתבה",
     },
+    publications: {
+      title: "פרסומים והופעות",
+      noItems: "עדיין אין פרסומים או הופעות.",
+      viewLink: "לקישור",
+      downloadPdf: "הורדת PDF",
+    },
     backToEssays: "← חזרה למאמרים",
     about: {
       photoAlt: "ניק קושניר",
@@ -46,6 +53,7 @@ export const translations = {
       essays: "Essays",
       books: "Published Books",
       articles: "Published Articles",
+      publications: "Publications & Appearances",
       contact: "Contact",
     },
     home: {
@@ -64,6 +72,12 @@ export const translations = {
       title: "Published Articles",
       noArticles: "No articles yet.",
       readArticle: "Read article",
+    },
+    publications: {
+      title: "Publications & Appearances",
+      noItems: "No publications or appearances yet.",
+      viewLink: "Open link",
+      downloadPdf: "Download PDF",
     },
     backToEssays: "← Back to Essays",
     about: {
