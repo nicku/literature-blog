@@ -25,4 +25,29 @@ items:
   description: "אסופה של 100 שירים על ולמען נשים"
   pdf: "/publications/eyes.pdf"
   date: "2023-11"
+
+- title: "גחליליות - בין השורות"
+  description: "מסלול לתיאטרון קהילתי בשיתוף מנהל הרווחה ותיאטרון חולון. קבוצת נערות מפרויקט גחליליות."
+  image: "/images/publications/shurot.png"
+  date: "2023-06"
+
+- title: "גחליליות - כיבוי אורות"
+  description: "מסלול לתיאטרון קהילתי בשיתוף מנהל הרווחה ותיאטרון חולון. קבוצת נערות מפרויקט גחליליות."
+  image: "/images/publications/orot.jpg"
+  date: "2025-07"
+
+- title: "גחליליות - ציפורים נודדות"
+  description: "מסלול לתיאטרון קהילתי בשיתוף מנהל הרווחה ותיאטרון חולון. קבוצת נערות מפרויקט גחליליות."
+  image: "/images/publications/ziporim.jpg"
+  date: "2026-07"
+
+- title: "גחליליות - מרחב מוגן"
+  description: "מסלול לתיאטרון קהילתי בשיתוף מנהל הרווחה ותיאטרון חולון. קבוצת נערות מפרויקט גחליליות."
+  image: "/images/publications/mugan.jpg"
+  date: "2024-07"
+
+- title: "מלכת השנה - תיאטרון חולון"
+  description: "הפקת תאטרון הסדנה חולון"
+  url: "https://www.hth.co.il/events/14503/"
+  date: "2023-01"
 ---

@@ -68,6 +68,20 @@ export interface PublicationEntry {
   date?: string
 }
 
+function parsePublicationDate(dateStr?: string): number {
+  if (!dateStr) return 0
+  const iso = dateStr.trim()
+  const ym = iso.match(/^(\d{4})-(\d{1,2})(?:-(\d{1,2}))?$/)
+  if (ym) {
+    const year = Number(ym[1])
+    const month = Number(ym[2]) - 1
+    const day = ym[3] ? Number(ym[3]) : 1
+    return new Date(year, month, day).getTime()
+  }
+  const parsed = Date.parse(iso)
+  return Number.isNaN(parsed) ? 0 : parsed
+}
+
 export function getPublicationsContent(lang: Lang): {
   title: string
   items: PublicationEntry[]
@@ -75,9 +89,12 @@ export function getPublicationsContent(lang: Lang): {
   const filePath = getContentPath("publications", lang)
   if (!fs.existsSync(filePath)) return null
   const { data } = matter(fs.readFileSync(filePath, "utf8"))
+  const items: PublicationEntry[] = Array.isArray(data.items) ? data.items : []
   return {
     title: data.title ?? "Publications & Appearances",
-    items: Array.isArray(data.items) ? data.items : [],
+    items: [...items].sort(
+      (a, b) => parsePublicationDate(b.date) - parsePublicationDate(a.date)
+    ),
   }
 }
 
