@@ -2,6 +2,18 @@
 title: Published Books
 ---
 
+## Demilitarized Zone
+**Year:** 2026
+
+Jonathan is certain that he belongs in a war. He is certain that a conflict is raging outside and that those who refuse to fight are cowards. Instead, his family has him committed to a secluded institution, where nurses restrain him, monitor his letters, and insist that no war is taking place.
+
+As Jonathan tries to understand the place that has taken him in, his letters become conversations with people who may never read them. Then he meets Margaret, a woman whose silence and distance draw him into a new kind of struggle. Between the lake outside his window, the family that sent him away, and the freedom he cannot define, Jonathan begins to question what it means to remain himself.
+
+Demilitarized Zone is a darkly comic and unsettling literary short story about war, love, institutional care, and the fragile boundary between reality and belief.
+
+[Buy on Website](https://www.amazon.com/dp/B0HKNN2FQG)
+
+
 ## Destined for Demolition
 
 **Year:** 2025

@@ -66,6 +66,10 @@ body {
   );
 }
 
+.rule.book-separator {
+  margin: 2.5rem 0;
+}
+
 /* RTL (Hebrew) prose and content */
 [dir="rtl"] .prose,
 .prose[dir="rtl"] {

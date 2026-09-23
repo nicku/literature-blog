@@ -3,6 +3,18 @@ import html from "remark-html"
 import { getBooksContent } from "@/lib/posts"
 import { t, type Lang } from "@/lib/i18n"
 
+/** Insert a visual rule before every book title except the first. */
+function addBookDividers(htmlContent: string): string {
+  let isFirst = true
+  return htmlContent.replace(/<h2\b/gi, (match) => {
+    if (isFirst) {
+      isFirst = false
+      return match
+    }
+    return `<div class="rule book-separator" role="separator"></div>${match}`
+  })
+}
+
 /** Add target and rel to external links so they open in a new tab and are safe. */
 function addExternalLinkAttrs(htmlContent: string): string {
   return htmlContent.replace(
@@ -38,6 +50,7 @@ export default async function BooksPage({ params }: Props) {
     : `<p>Edit <code>src/content/books-${lang}.md</code> to add your published books.</p>`
 
   content = addExternalLinkAttrs(content)
+  content = addBookDividers(content)
 
   const title = booksData?.title ?? t(lang as Lang).nav.books
   const isRtl = lang === "he"
