@@ -3,15 +3,20 @@ import html from "remark-html"
 import { getBooksContent } from "@/lib/posts"
 import { t, type Lang } from "@/lib/i18n"
 
-/** Insert a visual rule before every book title except the first. */
+const BOOK_TITLE_CLASS = "book-title font-title text-3xl font-bold"
+
+/** Mark book titles and insert a visual rule before every title except the first. */
 function addBookDividers(htmlContent: string): string {
   let isFirst = true
-  return htmlContent.replace(/<h2\b/gi, (match) => {
+  return htmlContent.replace(/<h2\b([^>]*)>/gi, (_, attrs) => {
+    const heading = /class=/i.test(attrs)
+      ? `<h2${attrs.replace(/class="/i, `class="${BOOK_TITLE_CLASS} `)}>`
+      : `<h2 class="${BOOK_TITLE_CLASS}"${attrs}>`
     if (isFirst) {
       isFirst = false
-      return match
+      return heading
     }
-    return `<div class="rule book-separator" role="separator"></div>${match}`
+    return `<div class="rule book-separator" role="separator"></div>${heading}`
   })
 }
 
@@ -69,7 +74,7 @@ export default async function BooksPage({ params }: Props) {
         <article
           dir={isRtl ? "rtl" : "ltr"}
           lang={lang}
-          className="prose prose-neutral max-w-none prose-headings:font-title prose-headings:font-bold prose-a:text-[var(--accent)] prose-a:no-underline hover:prose-a:underline"
+          className="prose prose-neutral max-w-none prose-a:text-[var(--accent)] prose-a:no-underline hover:prose-a:underline"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>

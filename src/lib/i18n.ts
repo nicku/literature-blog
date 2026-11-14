@@ -16,6 +16,7 @@ export const translations = {
       books: "ספרים שיצאו לאור",
       articles: "כתבות שפורסמו",
       publications: "פרסומים והופעות",
+      lectures: "הרצאות להזמנה",
       contact: "צור קשר",
     },
     home: {
@@ -41,9 +42,16 @@ export const translations = {
       viewLink: "לקישור",
       downloadPdf: "הורדת PDF",
     },
+    lectures: {
+      noItems: "בקרוב יתווספו הרצאות חדשות.",
+      order: "להזמנת הרצאה",
+    },
     backToEssays: "← חזרה למאמרים",
     about: {
       photoAlt: "ניק קושניר",
+    },
+    contact: {
+      sendEmail: "שלחו לי אימייל",
     },
   },
   en: {
@@ -54,6 +62,7 @@ export const translations = {
       books: "Published Books",
       articles: "Published Articles",
       publications: "Publications & Appearances",
+      lectures: "Lectures",
       contact: "Contact",
     },
     home: {
@@ -79,9 +88,16 @@ export const translations = {
       viewLink: "Open link",
       downloadPdf: "Download PDF",
     },
+    lectures: {
+      noItems: "New lectures will be added soon.",
+      order: "Book a lecture",
+    },
     backToEssays: "← Back to Essays",
     about: {
       photoAlt: "Nick Kushnir",
+    },
+    contact: {
+      sendEmail: "Send me an email",
     },
   },
 } as const satisfies Record<Lang, Record<string, unknown>>

@@ -69,12 +69,14 @@ export default async function ArticlesPage({ params }: Props) {
                   >
                     {article.publication}
                   </p>
-                  <p
-                    className="text-[0.9375rem] leading-relaxed"
-                    style={{ color: "var(--foreground-muted)" }}
-                  >
-                    {article.description}
-                  </p>
+                  {article.description && (
+                    <p
+                      className="text-[0.9375rem] leading-relaxed"
+                      style={{ color: "var(--foreground-muted)" }}
+                    >
+                      {article.description}
+                    </p>
+                  )}
                   <a
                     href={article.url}
                     target="_blank"

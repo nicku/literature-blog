@@ -13,7 +13,7 @@ export default async function HomePage({ params }: Props) {
       <div className="paper rounded-xl p-6 sm:p-8">
         <div className="text-center mb-8">
           <div className="inline-block mb-4 text-6xl leading-none" style={{ color: "var(--accent)", opacity: 0.3 }}>
-            "
+            &ldquo;
           </div>
           <h1 className="font-title text-4xl font-bold mb-2">{labels.home.title}</h1>
           <div className="rule my-6 max-w-xs mx-auto" role="presentation" />

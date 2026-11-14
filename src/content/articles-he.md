@@ -2,6 +2,12 @@
 title: כתבות שפורסמו
 articles:
 
+  - title: "מיתולוגיה של הגוף - בעקבות ברונו שולץ"
+    publication: "עיתון 77"
+    url: "https://iton77.com/%d7%92%d7%9c%d7%99%d7%95%d7%9f-450/"
+    date: "2026-11"
+ 
+ 
   - title: "להתפלל מבלי להאמין - בעקבות סיפורים של פסואה"
     publication: "עיתון 77"
     url: "https://iton77.com/%d7%92%d7%9c%d7%99%d7%95%d7%9f-499/"

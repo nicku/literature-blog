@@ -43,7 +43,7 @@ export function getAboutContent(lang: Lang): string | null {
 
 export interface ArticleEntry {
   title: string
-  description: string
+  description?: string
   publication: string
   url: string
   date?: string
@@ -66,6 +66,27 @@ export interface PublicationEntry {
   image?: string
   pdf?: string
   date?: string
+}
+
+export interface LectureEntry {
+  title: string
+  description: string
+  image: string
+}
+
+export function getLecturesContent(lang: Lang): {
+  title: string
+  intro?: string
+  items: LectureEntry[]
+} | null {
+  const filePath = getContentPath("lectures", lang)
+  if (!fs.existsSync(filePath)) return null
+  const { data } = matter(fs.readFileSync(filePath, "utf8"))
+  return {
+    title: data.title ?? "Lectures",
+    intro: data.intro,
+    items: Array.isArray(data.items) ? data.items : [],
+  }
 }
 
 function parsePublicationDate(dateStr?: string): number {
