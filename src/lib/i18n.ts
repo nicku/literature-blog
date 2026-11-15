@@ -45,6 +45,14 @@ export const translations = {
     lectures: {
       noItems: "בקרוב יתווספו הרצאות חדשות.",
       order: "להזמנת הרצאה",
+      searchPlaceholder: "חיפוש הרצאות...",
+      allCategories: "הכול",
+      noResults: "לא נמצאו הרצאות התואמות לחיפוש.",
+      categories: {
+        technology: "טכנולוגיה",
+        literature: "ספרות",
+        "children-literature": "ספרות ילדים",
+      },
     },
     backToEssays: "← חזרה למאמרים",
     about: {
@@ -91,6 +99,14 @@ export const translations = {
     lectures: {
       noItems: "New lectures will be added soon.",
       order: "Book a lecture",
+      searchPlaceholder: "Search lectures...",
+      allCategories: "All",
+      noResults: "No lectures match your search.",
+      categories: {
+        technology: "Technology",
+        literature: "Literature",
+        "children-literature": "Children's literature",
+      },
     },
     backToEssays: "← Back to Essays",
     about: {

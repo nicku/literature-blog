@@ -72,7 +72,16 @@ export interface LectureEntry {
   title: string
   description: string
   image: string
+  categories: LectureCategory[]
 }
+
+export type LectureCategory = "technology" | "literature" | "children-literature"
+
+const lectureCategories = new Set<LectureCategory>([
+  "technology",
+  "literature",
+  "children-literature",
+])
 
 export function getLecturesContent(lang: Lang): {
   title: string
@@ -85,7 +94,18 @@ export function getLecturesContent(lang: Lang): {
   return {
     title: data.title ?? "Lectures",
     intro: data.intro,
-    items: Array.isArray(data.items) ? data.items : [],
+    items: Array.isArray(data.items)
+      ? data.items.map((item) => ({
+          ...item,
+          categories: Array.isArray(item.categories)
+            ? item.categories.filter(
+                (category: unknown): category is LectureCategory =>
+                  typeof category === "string" &&
+                  lectureCategories.has(category as LectureCategory)
+              )
+            : [],
+        }))
+      : [],
   }
 }
 
