@@ -14,6 +14,18 @@ items:
     description: "A fresh reading of Peter Pan as a myth about the longing to remain a child and the price that longing demands. The lecture explores freedom and escape, time and memory, and the tension between childhood's enchantment and the responsibility of growing up."
     image: "/images/lectures/peter-pan-eternal-child.png"
 
+  - title: "How Do Machines Learn? — An Introduction to Artificial Intelligence"
+    description: "How does a computer learn to recognize images, understand language, and carry on a conversation? This lecture takes a look behind the scenes of artificial intelligence to discover how machines learn from examples, what makes them so successful, and why they still make mistakes. A journey into one of the most significant technological revolutions of our time."
+    image: "/images/lectures/how-machines-learn.png"
+
+  - title: "The Hidden Mathematics of the World — Patterns, Randomness, and Order"
+    description: "Does the world around us operate according to mathematical laws? What do social networks, traffic jams, and games of chance have in common? Through surprising examples from everyday life, we discover how simple mathematical ideas help us understand complex phenomena—and how mathematics lets us see the world in a new way."
+    image: "/images/lectures/hidden-mathematics.png"
+
+  - title: "The Mathematics of Literature — Can a Story Be Calculated?"
+    description: "What do mathematics and literature have in common? Can a plot be described by a formula, and what transforms a simple story into a complex work? Through literary works, wordplay, and surprising mathematical structures, we discover how two seemingly distant worlds share a deep engagement with order, infinity, logic, and the limits of imagination. A journey between numbers and words that reveals the mathematics hidden behind the stories we read."
+    image: "/images/lectures/mathematics-of-literature.png"
+
   - title: "What I Learned in the Galápagos"
     description: "An unsettling and humorous journey through the Galápagos with Kurt Vonnegut, Woody Allen, and Albert Camus. A lecture about fear, discomfort, existential doubt, and how literature helps us live with them."
     image: "/images/lectures/galapagos.png"
