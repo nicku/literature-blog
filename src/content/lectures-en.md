@@ -6,6 +6,14 @@ items:
     description: "A fresh reading of The Little Prince as a book about the craft of writing: the need to tell a story, the bond between writer and reader, the solitude from which creation emerges, and our responsibility for the words we leave behind."
     image: "/images/lectures/little-prince-writing.png"
 
+  - title: "Alice in Wonderland — The Sense in the Nonsense"
+    description: "A journey through Lewis Carroll's world, where nonsense, wordplay, and peculiar rules reveal a surprising logic. The lecture explores how nonsense challenges language, identity, and authority — and enables us to think differently about reality."
+    image: "/images/lectures/alice-sense-nonsense.png"
+
+  - title: "Peter Pan — The Myth of the Eternal Child"
+    description: "A fresh reading of Peter Pan as a myth about the longing to remain a child and the price that longing demands. The lecture explores freedom and escape, time and memory, and the tension between childhood's enchantment and the responsibility of growing up."
+    image: "/images/lectures/peter-pan-eternal-child.png"
+
   - title: "What I Learned in the Galápagos"
     description: "An unsettling and humorous journey through the Galápagos with Kurt Vonnegut, Woody Allen, and Albert Camus. A lecture about fear, discomfort, existential doubt, and how literature helps us live with them."
     image: "/images/lectures/galapagos.png"
